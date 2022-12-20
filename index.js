@@ -1,7 +1,11 @@
 const inquirer = require("inquirer");
+const template = require("./src/template")
 const fs = require("fs");
-
-const htmlPage = ({ name, location, github }) => ``;
+const genEmpFile = [];
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 inquirer
   .prompt([
@@ -27,14 +31,14 @@ inquirer
     },
   ])
   .then((ans) => {
-    let manager =
-      (ans.managerName, ans.managerID, ans.managerEmail, ans.managerOfficeNum);
-    console.log(manager);
-    teamMemeber();
+    let manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOfficeNum);
+      genEmpFile.push(manager);
+    console.log(genEmpFile);
+    teamMember();
   });
 
 // Select which employee to add, if none, skip all questions and create HTML page. If Engineer: display engineer questions, if Intern: display intern questions.
-function teamMemeber() {
+function teamMember() {
   inquirer
     .prompt([
       {
@@ -54,6 +58,8 @@ function teamMemeber() {
         engineerQs();
       } else if (ans.memberAdd === "Intern") {
         interQs();
+      } else if (ans.memberAdd === "I don't want to add any more team members") {
+        noMoreEmp();
       }
       return;
     });
@@ -86,8 +92,10 @@ function engineerQs() {
     ])
     // Propmt to memberAdd questions
     .then((ans) => {
-      console.log(ans);
-      teamMemeber();
+      let engineer = new Engineer(ans.engName, ans.engID, ans.engEmail, ans.engGitName);
+      genEmpFile.push(engineer);
+      console.log(genEmpFile);
+      teamMember();
     });
 }
 
@@ -118,13 +126,15 @@ function interQs() {
     ])
     // Propmt to memberAdd questions
     .then((ans) => {
-      console.log(ans);
-      teamMemeber();
+      let intern = new Intern(ans.internName, ans.internID, ans.internEmail, ans.internSchool);
+      genEmpFile.push(intern);
+      console.log(genEmpFile);
+      teamMember();
     });
 }
-// .then((answers) => {
-//     const createHTML = htmlPage(answers);
-//     fs.writeFile("./dist/index.html", createHTML, (err) =>
-//       err ? console.log(err) : console.log("Successfully created index.html!")
-//     );
-//   });
+function noMoreEmp() {
+  const createHTML = template(genEmpFile);
+  fs.writeFile("./dist/index.html", createHTML, (err) =>
+      err ? console.log(err) : console.log("Successfully created index.html!")
+  );
+}
