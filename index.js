@@ -7,6 +7,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+// Questions for the manager
 inquirer
   .prompt([
     {
@@ -132,6 +133,8 @@ function interQs() {
       teamMember();
     });
 }
+
+// function to actually generate the HTML
 function noMoreEmp() {
   const createHTML = template(genEmpFile);
   fs.writeFile("./dist/index.html", createHTML, (err) =>

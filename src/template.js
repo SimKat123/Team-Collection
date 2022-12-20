@@ -1,3 +1,4 @@
+// function to get the styling for the specific roles
 function generateHTML(teamArr) {
     console.log(teamArr);
     let htmlOutput = ``;
@@ -43,11 +44,10 @@ function generateHTML(teamArr) {
         </div> `;
         }
     });
-
     return htmlOutput; 
-
 };
 
+// Genereates the actual HTML with styling links and all
 function mainHTML(teamArr) {
     return `
     <!DOCTYPE html>
