@@ -16,7 +16,7 @@ A generator to help managers organize their team member's information in an easy
 To install the necessary dependencies, run the following command: npm i
 
 ## Usage
-Open the Intergrated Terminal and intall the dependencies using 'npm i'. Once in the necessary packages are installed, run the app using 'npm start'. Follow the prompts to answer all the questions to generate an index.html file in the dist folder. For a follow-along tutorial, here is a [video](https://drive.google.com/file/d/1XtInmDa0lumqntwgVdmaQHGf_3IYBiT2/view?usp=sharing) demonstarting the app.
+Open the Intergrated Terminal and intall the dependencies using 'npm i'. Once in the necessary packages are installed, run the app using 'npm start'. Follow the prompts to answer all the questions to generate an index.html file in the dist folder. For a follow-along tutorial, here is a [video](https://drive.google.com/file/d/1Zd6_lLKBJXfSTaU8Z_fjZyuJBbFpHWup/view?usp=sharing) demonstarting the app.
 
 ## License
 This project is licensed under the MIT license.

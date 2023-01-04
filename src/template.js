@@ -25,7 +25,7 @@ function generateHTML(teamArr) {
                 <ul class="list-group bg-light text-center p-4">
                     <li class="list-group-item"><strong>ID:</strong> ${teamMember.getId()}</li>
                     <li class="list-group-item"><strong>Email:</strong> <a href="mailto:${teamMember.getEmail()}"> ${teamMember.getEmail()}</a></li>
-                    <li class="list-group-item"><strong>GitHub:</strong> ${teamMember.getGitHub()}</li>
+                    <li class="list-group-item"><strong>GitHub:</strong> <a href="mailto:${teamMember.getGitHub()}"> ${teamMember.getGitHub()}</a></li>
                 </ul>
             </div>
         </div> `;
